@@ -10,3 +10,278 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+/* ========================= */
+/*       HERO SECTION        */
+/* ========================= */
+
+.hero {
+  width: 100%;
+  height: 420px;
+  background-image: url("/mnt/data/Screenshot 2025-11-20 at 16.05.19.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hero-content h2 {
+  font-size: 26px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+/* ========================= */
+/*       LIST GRID           */
+/* ========================= */
+
+.lists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.list-card {
+  text-decoration: none;
+  color: white;
+}
+
+.list-card-bg {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  filter: grayscale(100%);
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
+
+.list-card-bg:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.list-card-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+/* ========================= */
+/*     BUTTON STYLING        */
+/* ========================= */
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* ---------- HERO / HEADER ---------- */
+.list-hero {
+  position: relative;
+  height: 260px;
+  background-image: url("/mnt/data/Screenshot 2025-11-20 at 16.13.55.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.list-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* dark overlay */
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2; /* sits above the overlay */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-title {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+/* movies count badge (top-right) */
+.movies-badge {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 3;
+  background: #f6b327; /* warm yellow */
+  color: #111;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ---------- ADD BUTTON ---------- */
+.btn-add-movie {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ---------- MOVIE CARD ---------- */
+.movie-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* poster area */
+.movie-card-media {
+  height: 200px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .25s ease;
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.03);
+}
+
+/* body */
+.movie-card-body {
+  flex: 1 1 auto;
+  background: #fff;
+}
+
+.movie-title {
+  font-size: 20px;
+  margin: 0;
+  color: #222;
+}
+
+.movie-rating {
+  color: #f0a500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.movie-overview {
+  margin-top: 10px;
+  color: #6b6b6b;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* quoted comment style */
+.movie-comment {
+  margin-top: 14px;
+  color: #444;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+}
+
+.movie-comment .fa-quote-left {
+  color: #222;
+}
+
+/* footer with delete link */
+.movie-card-footer {
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.delete-link {
+  color: #e74c3c;
+  text-decoration: none;
+  padding: 6px 10px;
+}
+
+/* smaller screens tweak */
+@media (max-width: 767px) {
+  .list-hero { height: 200px; }
+  .list-title { font-size: 28px; }
+  .movie-card-media { height: 180px; }
+}
+
+
+/* Navbar visual tweaks to match screenshots */
+.navbar-shadow {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: #fff; /* white background */
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+/* small logo */
+.navbar-logo {
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* nav links styling */
+.navbar .nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: .4rem .75rem;
+}
+
+.navbar .nav-link:hover {
+  color: #111;
+}
+
+/* make the navbar sit on top of page content and not overlap hero when hero uses absolute children */
+.navbar {
+  z-index: 1200;
+}
+
+/* small responsive spacing matches screenshot */
+@media (max-width: 767px) {
+  .navbar .nav-link { padding: .35rem .5rem; font-size: 14px; }
+}

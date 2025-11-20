@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <!-- local preview logo (replace with your real logo later) -->
+      <img src="/mnt/data/Screenshot 2025-11-20 at 16.05.19.png"
+           alt="Logo"
+           class="navbar-logo me-2" width="44" height="44" />
+      <span class="visually-hidden">Home</span>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to "My lists", lists_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item ms-3">
+          <%= link_to "New list", new_list_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

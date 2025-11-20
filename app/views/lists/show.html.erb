@@ -1,0 +1,60 @@
+<!-- header / hero -->
+<div class="list-hero" role="banner" aria-label="<%= @list.name %> header">
+  <div class="list-hero-overlay"></div>
+
+  <div class="container hero-inner">
+    <h1 class="list-title"><%= @list.name %></h1>
+
+    <!-- badge with movie count -->
+    <div class="movies-badge">
+      <%= pluralize(@list.bookmarks.count, "movie") %>
+    </div>
+  </div>
+</div>
+
+<!-- main content -->
+<div class="container mt-5">
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to "add a movie", new_list_bookmark_path(@list),
+                class: "btn btn-success btn-add-movie" %>
+  </div>
+
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="movie-card shadow-sm">
+          <div class="movie-card-media">
+            <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "movie-poster" %>
+          </div>
+
+          <div class="movie-card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="movie-title mb-0"><%= bookmark.movie.title %></h3>
+              <div class="movie-rating">
+                <strong><%= bookmark.movie.rating %></strong>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <p class="movie-overview text-muted"><%= bookmark.movie.overview %></p>
+
+            <% if bookmark.comment.present? %>
+              <div class="movie-comment mt-3">
+                <i class="fa-solid fa-quote-left"></i>
+                <span class="ms-2 text-muted"><%= bookmark.comment %></span>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="movie-card-footer p-3 d-flex justify-content-end">
+            <%= button_to "delete",
+                  list_bookmark_path(@list, bookmark),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  class: "btn btn-link delete-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
